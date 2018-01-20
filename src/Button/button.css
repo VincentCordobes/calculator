@@ -1,11 +1,11 @@
 .button {
   font-size: 25px;
-  width: 60px;
+  width: 70px;
   height: 60px;
   line-height: 1;
   background-color: #fff;
   border: none;
-  color: #35342f;
+  color: inherit;
   transition: all 0.2s ease-out;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .button.large {
-  width: 120px;
+  width: 140px;
 }
 
 .highlight {

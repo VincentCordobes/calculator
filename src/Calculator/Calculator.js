@@ -4,7 +4,15 @@ import { connect } from 'react-redux';
 import Screen from '../Screen/Screen';
 import Button from '../Button/Button';
 import './calculator.css'
-import { clear, pressDigit, pressOperator, calculate, pressComma, callMonkeys } from './actions';
+import {
+  clear,
+  pressDigit,
+  pressOperator,
+  calculate,
+  pressComma,
+  callMonkeys,
+  toggleHistory,
+} from './actions';
 
 // Types
 import type { Operator, Digit } from '../types';
@@ -21,6 +29,7 @@ export type Props = {
   pressOperator: (operator: Operator) => void,
   pressComma: () => void,
   callMonkeys: () => void,
+  toggleHistory: () => void,
 };
 
 export class Calculator extends React.Component<Props> {
@@ -43,7 +52,7 @@ export class Calculator extends React.Component<Props> {
         <div className="keyboard">
           <div>
             <Button onPress={props.clear}>C</Button>
-            <Button large>list</Button>
+            <Button large onPress={props.toggleHistory}>list</Button>
             {ALL_DIGITS.map(number => (
               <Button
                 key={number}
@@ -77,6 +86,7 @@ export default connect(state => state, {
   pressOperator,
   pressComma,
   callMonkeys,
+  toggleHistory,
 })(Calculator);
 
 function toString(operator: Operator): string {

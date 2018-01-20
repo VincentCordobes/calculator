@@ -1,0 +1,29 @@
+.history {
+  grid-column: span 4;
+}
+@media (min-width:576px){
+  .history {
+    grid-column: span 3;
+    margin-left: 50px;
+  }
+}
+
+.history-header {
+  color: #7b7b7b;
+  margin-top: 0;
+}
+
+ul > li {
+  color: #7b7b7b;
+  margin: 15px 0;
+}
+
+.search {
+  font-size: 16px;
+  padding: 10px;
+  width: 250px;
+  color: inherit;
+}
+.search::placeholder {
+  color: #cecece;
+}

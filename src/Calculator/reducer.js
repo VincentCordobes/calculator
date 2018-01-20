@@ -6,6 +6,8 @@ import {calculate} from './calculate';
 const initialState: State = {
   currentCompute: '',
   result: null,
+  previousComputes: [],
+  showHistory: false,
 };
 
 export default function calculator(
@@ -15,22 +17,44 @@ export default function calculator(
   switch (action.type) {
     case 'PRESS_DIGIT':
       return handleKeyPress(state, action.digit);
+
     case 'PRESS_OPERATOR':
       return handleKeyPress(state, action.operator);
+
     case 'PRESS_COMMA':
       return handleKeyPress(state, '.');
-    case 'CALCULATE':
+
+    case 'CALCULATE': {
+      const { previousComputes, currentCompute } = state;
       return {
         ...state,
-        result: calculate(state.currentCompute),
+        previousComputes: appendIfValid(previousComputes, currentCompute),
+        result: calculate(currentCompute),
       };
+    }
+
     case 'CLEAR':
-      return initialState;
-    case 'CALL_MONKEYS':
       return {
-        currentCompute: action.operation,
-        result: calculate(action.operation)
+        ...state,
+        currentCompute: '',
+        result: null,
       };
+
+    case 'CALL_MONKEYS':
+      const { operation } = action;
+      return {
+        ...state,
+        currentCompute: operation,
+        previousComputes: appendIfValid(state.previousComputes, operation),
+        result: calculate(operation)
+      };
+
+    case 'TOGGLE_HISTORY':
+      return {
+        ...state,
+        showHistory: !state.showHistory,
+      };
+
     default: {
       // eslint-disable-next-line no-unused-vars
       const typeCheck: 'type' & 'check' = action;
@@ -39,13 +63,23 @@ export default function calculator(
   }
 }
 
+function appendIfValid(
+  previousComputes: string[], 
+  operation: string
+): string[] {
+  return !isNaN(calculate(operation))
+    ? [...previousComputes, operation]
+    : previousComputes;
+}
+
 function handleKeyPress(
   state: State, 
   key: Operator | Digit | Comma
 ): State {
   if (state.result !== null) {
     return {
-      ...initialState,
+      ...state,
+      result: null,
       currentCompute: '' + key
     };
   } else {
