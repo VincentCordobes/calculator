@@ -1,6 +1,6 @@
 // @flow
-import { ALL_OPERATORS, ALL_DIGITS } from "./Calculator";
-import { calculate } from "./calculate";
+import { ALL_OPERATORS, ALL_DIGITS } from './Calculator';
+import { calculate } from './calculate';
 
 export function generateValidOperation(maxLength: number): string {
 
