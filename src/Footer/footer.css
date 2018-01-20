@@ -1,0 +1,28 @@
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: inherit;
+  background: #fff;
+  border-top: 1px solid rgba(43, 50, 57, 0.15);
+}
+
+footer > div.footer-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
+}
+
+#footer-content span {
+  font-weight: bold; 
+}
+
+#footer-content > span + span {
+  font-style: italic;
+}
+
+#heart {
+  color: #AC4D4D;
+}

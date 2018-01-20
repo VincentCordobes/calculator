@@ -1,0 +1,11 @@
+.card {
+  margin-top: 50px;
+  width: 240px;
+	background-color: #ffffff;
+  border: 1px solid rgba(43, 50, 57, 0.15);
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: row;
+}
