@@ -1,8 +1,15 @@
 .card {
-  margin-top: 50px;
-  width: 240px;
+  width: 280px;
+  height: 374px;
 	background-color: #ffffff;
   border: 1px solid rgba(43, 50, 57, 0.15);
+  grid-column: span 4;
+}
+
+@media (min-width:576px){
+  .card {
+    grid-column: 1;
+  }
 }
 
 .keyboard {

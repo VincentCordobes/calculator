@@ -96,6 +96,7 @@ function setup(overloadedProps = {}): Setup {
     pressOperator: (operator: Operator) => {},
     pressComma: () => {},
     callMonkeys: () => {},
+    toggleHistory: () => {},
   }
   const props = { ...defaultProps, ...overloadedProps };
   const wrapper = mount(<Calculator {...props} />)

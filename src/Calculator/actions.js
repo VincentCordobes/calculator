@@ -62,3 +62,12 @@ export function callMonkeys(): CallMonkeys {
     operation: generateValidOperation(12),
   };
 }
+
+export type ToggleHistory = {
+  type: 'TOGGLE_HISTORY',
+}
+export function toggleHistory(): ToggleHistory {
+  return {
+    type: 'TOGGLE_HISTORY',
+  }
+}
