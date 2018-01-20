@@ -1,0 +1,35 @@
+.button {
+  font-size: 25px;
+  width: 60px;
+  height: 60px;
+  line-height: 1;
+  background-color: #fff;
+  border: none;
+  color: #35342f;
+  transition: all 0.2s ease-out;
+}
+
+.button:hover {
+  background-color: #fafafa;
+}
+
+.button:active {
+  transform: scale(0.85);
+  transition: none;
+}
+
+.button:focus, .button:focus:active {
+  outline: thin dotted;
+}
+
+.button.large {
+  width: 120px;
+}
+
+.highlight {
+  background-color: #FFECB3;
+}
+
+.button.highlight:hover {
+  background-color: #FFF8E1;
+}
