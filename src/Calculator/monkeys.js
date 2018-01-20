@@ -20,7 +20,7 @@ function randomOperation(maxLength: number): string {
   const operationLength = getRandomNumber(1, maxLength);
   let acc = '';
   for(let i = 0; i < operationLength; i++) {
-    acc += KEYS[getRandomInt(0, KEYS.length)];
+    acc += KEYS[getRandomInt(1, KEYS.length)];
   }
   return acc;
 }
